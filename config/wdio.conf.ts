@@ -29,7 +29,9 @@ export const config: Options.Testrunner = {
                 'download.default_directory': path.join(__dirname, '../data/files/downloads')
             },
             // We can add additional arguments here for our browsers such as '--headless'
-            args: ['--start-maximized', '--window-size=2560,1440'],
+            args: [
+                '--start-maximized', 
+                '--window-size=2560,1440'],
         },
         acceptInsecureCerts: true
     }],

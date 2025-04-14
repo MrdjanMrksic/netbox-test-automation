@@ -1,0 +1,1 @@
+export const BASE_URI = "https://demo.netbox.dev"
