@@ -25,7 +25,10 @@
     "luxon": "^3.6.1"
   },
   "scripts": {
-    "test": "wdio run config/wdio.conf.ts"
+    "test": "wdio run config/wdio.conf.ts",
+    "registration": "wdio run config/wdio.conf.ts --spec ./specs/register.spec.ts",
+    "login": "wdio run config/wdio.conf.ts --spec ./specs/login.spec.ts",
+    "createNewDeviceType": "wdio run config/wdio.conf.ts --spec ./specs/createNewDeviceType.spec.ts"
   }
 }
 

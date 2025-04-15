@@ -19,9 +19,6 @@ class RegistrationPage extends BasePage{
         await this.getSubmitButton.click();
     }
 
-    /**
-     * overwrite specific options to adapt it to page object
-     */
     public open () {
         return super.open('/plugins/demo/login/');
     }
