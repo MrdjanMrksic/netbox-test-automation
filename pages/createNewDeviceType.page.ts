@@ -1,3 +1,4 @@
+import { DEVICE_TYPE_NAME } from "../data/constants";
 import utilities from "../support/utilities";
 import BasePage from "./base.page";
 
@@ -31,10 +32,10 @@ class CreateNewDeviceTypePage extends BasePage{
     }
 
 
-    async fillOutAddNewDeviceTypeForm(){
+    async fillOutAddNewDeviceTypeForm(deviceTypeName: string){
         await this.manufacturerDropdownMenu.click();
         await this.selectRandomManufacturer(Math.ceil(utilities.generateRandomNumberZeroToTen()/2));
-        await this.modelInputBox.setValue(utilities.generateRandomString(15,0));
+        await this.modelInputBox.setValue(deviceTypeName);
         await this.slugInputBox.setValue(utilities.generateRandomString(15,0));
         await this.heightInputBox.setValue(utilities.generateRandomNumberZeroToTen() * 0.5);
     }

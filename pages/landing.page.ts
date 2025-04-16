@@ -18,7 +18,7 @@ class LandingPage extends BasePage{
     }
 
     public get racks(){
-        return $(`//a[normalize-space()='Racks']`);
+        return $(`//a[contains(text(),'Racks')]`);
     }
 
     public get welcomeElement(){

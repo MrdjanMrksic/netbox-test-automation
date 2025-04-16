@@ -28,7 +28,9 @@
     "test": "wdio run config/wdio.conf.ts",
     "registration": "wdio run config/wdio.conf.ts --spec ./specs/register.spec.ts",
     "login": "wdio run config/wdio.conf.ts --spec ./specs/login.spec.ts",
-    "createNewDeviceType": "wdio run config/wdio.conf.ts --spec ./specs/createNewDeviceType.spec.ts"
+    "deviceType": "wdio run config/wdio.conf.ts --spec ./specs/deviceType.spec.ts",
+    "rack": "wdio run config/wdio.conf.ts --spec ./specs/rack.spec.ts",
+    "e2e-addDevice": "wdio run config/wdio.conf.ts --spec ./specs/e2e.addDevice.spec.ts"
   }
 }
 
