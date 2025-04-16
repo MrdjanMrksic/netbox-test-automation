@@ -13,6 +13,10 @@ class RegistrationPage extends BasePage{
         return $(`//button[@type='submit']`)
     }
 
+    public get homePageButton(){
+       return $(`//a[normalize-space()='Home Page']`);
+    }
+
     public async register(username: string, password: string) {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);

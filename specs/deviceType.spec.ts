@@ -3,7 +3,7 @@ import landingPage from '../pages/landing.page';
 import loginPage from '../pages/login.page';
 import deviceTypePage from '../pages/deviceTypes.page'
 import addNewDeviceTypePage from '../pages/createNewDeviceType.page'
-import utilities from '../support/utilities';
+import allureReporter from '@wdio/allure-reporter';
 
 
 before(async () => {
@@ -11,21 +11,37 @@ before(async () => {
     loginPage.login(USER_INFO.USERNAME, USER_INFO.PASSWORD)
 });
 
-describe('My Login application', () => {
-    it('should login with valid credentials', async () => {
+describe('Device type tests', () => {
+    it('validate create device type functionality', async () => {
+        allureReporter.addFeature('Registration');
+        allureReporter.addSeverity('critical');
+        allureReporter.addDescription('Check that user can successfully create a device type', 'Description');
+
+        allureReporter.startStep('Attempting to navigate to device type creation form');
         await landingPage.devicesTab.click();
         await landingPage.deviceTypes.click();
         await deviceTypePage.addDeviceTypeButton.click();
+        allureReporter.endStep();
+
+        allureReporter.startStep('Attempting to create a new device type');
         await addNewDeviceTypePage.fillOutAddNewDeviceTypeForm(DEVICE_TYPE_NAME);
         await addNewDeviceTypePage.createButton.click();
-        await expect(addNewDeviceTypePage.deviceTypeCreatedMessage).toBeExisting();
+        allureReporter.endStep();
 
-        //delete
+        allureReporter.startStep('Validating success message is shown');
+        await expect(addNewDeviceTypePage.deviceTypeCreatedMessage).toBeExisting();
+        allureReporter.endStep();
+
+        allureReporter.startStep('Attempting to delete the newly created device type');
         await landingPage.deviceTypes.click();
         await deviceTypePage.deviceSearchBar.setValue(DEVICE_TYPE_NAME);
         (await deviceTypePage.deviceTypeFromTable(DEVICE_TYPE_NAME)).click();
         await deviceTypePage.deleteDeviceTypeButton.click()
         await deviceTypePage.confirmDeleteButton.click();
+        allureReporter.endStep();
+
+        allureReporter.startStep('Validating success message is shown');
         await expect(deviceTypePage.deviceTypeDeletedMessage).toBeExisting();
+        allureReporter.endStep();
     })
 })
