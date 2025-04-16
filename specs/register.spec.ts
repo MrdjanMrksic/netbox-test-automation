@@ -1,3 +1,4 @@
+import { USER_INFO } from '../data/constants';
 import landingPage from '../pages/landing.page';
 import registrationPage from '../pages/registration.page';
 import utilities from '../support/utilities';
@@ -7,10 +8,9 @@ before(async () => {
     await registrationPage.open();
 });
 
-describe('My Login application', () => {
-    it('should login with valid credentials', async () => {
-        //await registrationPage.register(utilities.generateRandomString(10,0), utilities.generateRandomString(7,1));
-        await registrationPage.register("VitezKoja", "Mlata!1");
+describe('Register tests', () => {
+    it('Validate registration functionality using valid info', async () => {
+        await registrationPage.register(USER_INFO.USERNAME, USER_INFO.PASSWORD);
         await expect(landingPage.welcomeElement).toBeExisting();
     })
 })
