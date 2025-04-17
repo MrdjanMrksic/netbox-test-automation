@@ -12,7 +12,7 @@ before(async () => {
 });
 
 describe('Device type tests', () => {
-    it('validate create device type functionality', async () => {
+    it('Validate create device type functionality', async () => {
         allureReporter.addFeature('Registration');
         allureReporter.addSeverity('critical');
         allureReporter.addDescription('Check that user can successfully create a device type', 'Description');
@@ -31,7 +31,9 @@ describe('Device type tests', () => {
         allureReporter.startStep('Validating success message is shown');
         await expect(addNewDeviceTypePage.deviceTypeCreatedMessage).toBeExisting();
         allureReporter.endStep();
+    });
 
+    it('Validate delete device type functionality', async () => {
         allureReporter.startStep('Attempting to delete the newly created device type');
         await landingPage.deviceTypes.click();
         await deviceTypePage.deviceSearchBar.setValue(DEVICE_TYPE_NAME);

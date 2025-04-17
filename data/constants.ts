@@ -1,6 +1,6 @@
 export const BASE_URI = "https://demo.netbox.dev";
-export const RACK_NAME = `Mrksic-rack-${Date.now()}`;
-export const DEVICE_TYPE_NAME = `Mrksic-device-type-${Date.now()}`;
+export const RACK_NAME = `MDS-rack-${Date.now()}`;
+export const DEVICE_TYPE_NAME = `MDS-device-type-${Date.now()}`;
 export const USER_INFO = {
   USERNAME: "VitezKoja",
   INCORRECT_USERNAME: "Nisam VitezKoja",

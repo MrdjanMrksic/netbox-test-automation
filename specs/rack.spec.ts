@@ -30,7 +30,9 @@ describe('Racks tests', () => {
         allureReporter.startStep('Validating success message is shown');
         await expect(createNewRackPage.rackCreatedMessage).toBeExisting();
         allureReporter.endStep();
+    });
 
+    it('Validate delete rack functionality', async () => {
         allureReporter.startStep('Attempting to delete the newly created rack');
         landingPage.racks.click();
         await racksPage.rackSearchBar.setValue(RACK_NAME);
